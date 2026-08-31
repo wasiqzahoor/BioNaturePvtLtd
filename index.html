@@ -1,0 +1,729 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioNature (Pvt) Ltd | GYN-GUARD Feminine Wash</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/jpeg" href="logo.png">
+</head>
+<body>
+<!-- HEADER -->
+<header id="header">
+    <div class="container">
+        <a href="#home" class="logo">
+            <img src="./logo.png" alt="BioNature Logo" class="logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="logo-icon" style="display:none;">BN</div>
+            <div class="logo-text">
+                <span class="brand">BioNature (Pvt) Ltd</span>
+                <span class="tagline">Nature &bull; Health &bull; Future</span>
+            </div>
+        </a>
+        <nav id="nav">
+            <a href="#about" onclick="closeMenu()">About Us</a>
+            <a href="#products" onclick="closeMenu()">Products</a>
+            <a href="#benefits" onclick="closeMenu()">Benefits &amp; Usage</a>
+            <a href="#why-us" onclick="closeMenu()">Why Choose Us</a>
+            <a href="https://wa.me/923365040776" class="btn btn-whatsapp nav-wa-mobile" target="_blank"><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
+        </nav>
+        <a href="https://wa.me/923365040776" class="btn btn-primary header-wa-btn" target="_blank">Order on WhatsApp</a>
+        <button class="cart-icon-btn" id="cartIconBtn" onclick="openCart()">
+            <i class="fas fa-shopping-bag"></i>
+            <span class="cart-badge" id="cartBadge" data-count="0"></span>
+        </button>
+        <button class="hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+    <video class="hero-bg-video" id="heroBgVideo" autoplay muted loop playsinline>
+        <source src="./BackgroundVideo.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <div class="hero-badge">
+            <span class="pulse-dot"></span>
+            Confidence Starts With Care...
+        </div>
+        <h1>
+            <span class="gradient-text">GYN-GUARD</span><br>
+            Feminine Wash
+        </h1>
+        <p class="hero-sub">Premium intimate hygiene formulation with <strong style="color:white;">Whitening Effect</strong> &amp; Natural Acidic pH Protection. Gentle care, all-day freshness.</p>
+        <div class="hero-features">
+            <div class="hero-feat"><span class="feat-icon"><i class="fas fa-leaf"></i></span> Tea Tree Oil</div>
+            <div class="hero-feat"><span class="feat-icon"><i class="fas fa-balance-scale"></i></span> pH 3.5-4.5</div>
+            <div class="hero-feat"><span class="feat-icon"><i class="fas fa-user-md"></i></span> Gynecologist Tested</div>
+        </div>
+        <div class="hero-cta">
+            <a href="#products" class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Shop Now</a>
+            <a href="https://wa.me/923365040776" class="btn btn-outline" target="_blank"><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+    <div class="container">
+        <div class="about-layout">
+            <div class="about-left reveal">
+                <div class="about-logo-wrap">
+                    <img src="./logo.png" alt="BioNature Logo" onerror="this.style.display='none'">
+                    <div class="company-name">BioNature (Pvt) Ltd</div>
+                    <div class="company-tag">NATURE &bull; HEALTH &bull; FUTURE</div>
+                    <div class="about-stats-row">
+                        <div class="about-stat-box">
+                            <div class="stat-num">50K+</div>
+                            <div class="stat-label">Happy Customers</div>
+                        </div>
+                        <div class="about-stat-box">
+                            <div class="stat-num">100%</div>
+                            <div class="stat-label">Natural Ingredients</div>
+                        </div>
+                        <div class="about-stat-box">
+                            <div class="stat-num">5+</div>
+                            <div class="stat-label">Products</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-right reveal d2">
+                <h2>About <span>BioNature</span> (Pvt) Ltd</h2>
+                <div class="about-subtitle">Soan Gardens, Islamabad</div>
+                <p class="about-text">BioNature (Pvt) Ltd is a leading personal health and hygiene company based in Soan Gardens, Islamabad. We are committed to creating <strong>premium-quality products</strong> that combine the healing power of nature with modern scientific research.</p>
+                <p class="about-text">Our mission is to deliver <strong>nature-backed, scientifically tested</strong> personal health and hygiene solutions that empower every individual to live with confidence and comfort. We believe that everyone deserves access to safe, gentle, and effective intimate care.</p>
+                <p class="about-text">Every product we create undergoes <strong>rigorous clinical testing</strong> and is approved by leading gynecologists, ensuring the highest standards of safety and efficacy for our customers.</p>
+                <div class="about-highlights">
+                    <div class="about-highlight"><i class="fas fa-check-circle"></i> Gynecologist Approved</div>
+                    <div class="about-highlight"><i class="fas fa-check-circle"></i> 100% Natural Extracts</div>
+                    <div class="about-highlight"><i class="fas fa-check-circle"></i> Clinically Tested</div>
+                    <div class="about-highlight"><i class="fas fa-check-circle"></i> pH Balanced Formula</div>
+                </div>
+            </div>
+        </div>
+        <div class="about-cards">
+            <div class="about-card reveal d1">
+                <div class="card-icon"><i class="fas fa-flask"></i></div>
+                <h3>Scientific Purity</h3>
+                <p>Every product is formulated in compliance with international quality standards and undergoes rigorous clinical testing for safety and purity.</p>
+            </div>
+            <div class="about-card reveal d2">
+                <div class="card-icon"><i class="fas fa-leaf"></i></div>
+                <h3>Natural Extracts</h3>
+                <p>We harness the power of botanical ingredients like Tea Tree Oil, Aloe Vera, and other plant-based actives for gentle care.</p>
+            </div>
+            <div class="about-card reveal d3">
+                <div class="card-icon"><i class="fas fa-user-md"></i></div>
+                <h3>Gynecologist Approved</h3>
+                <p>Our products are clinically recommended and approved by leading gynecologists for safe and effective intimate hygiene care.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FEATURED PRODUCT -->
+<section id="featured-product" style="background: linear-gradient(180deg, var(--bg-pink) 0%, var(--white) 100%);">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-badge"><i class="fas fa-star"></i> Featured Product</span>
+            <h2>Our <span>Product</span></h2>
+        </div>
+        <div class="fp-layout">
+            <div class="fp-image-col reveal">
+                <div class="fp-image-card">
+                    <img src="./Product1.png" alt="GYN-GUARD Feminine Wash" onerror="this.outerHTML='<div class=\'fp-img-placeholder\'><i class=\'fas fa-flask\'></i><span>GYN-GUARD</span></div>'">
+                </div>
+            </div>
+            <div class="fp-info-col reveal d2">
+                <h2 class="fp-name">GYN-GUARD <span>Feminine Wash</span></h2>
+                <p class="fp-tagline">Premium Intimate Hygiene &middot; Whitening Effect &middot; pH Balanced</p>
+                <p class="fp-desc">GYN-GUARD Feminine Wash is a scientifically formulated intimate hygiene solution designed for women's sensitive needs. It maintains the natural acidic pH balance while providing a gentle whitening effect and all-day freshness. Enriched with <strong>Tea Tree Oil</strong> and natural botanical extracts for antimicrobial protection without harsh chemicals.</p>
+                <div class="fp-tags">
+                    <span class="fp-tag"><i class="fas fa-leaf"></i> Natural Extracts</span>
+                    <span class="fp-tag"><i class="fas fa-user-md"></i> Gynecologist Tested</span>
+                    <span class="fp-tag"><i class="fas fa-balance-scale"></i> pH 3.5-4.5</span>
+                </div>
+                <button class="btn btn-primary fp-add-cart" onclick="addToCart({id:'gyn-featured',name:'GYN-GUARD Feminine Wash',variant:'100ml',price:850,img:'./Product1.png'})"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products" style="background: linear-gradient(180deg, var(--bg-green) 0%, var(--white) 100%);">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-badge green-badge"><i class="fas fa-flask"></i> Our Product</span>
+            <h2>Product <span>Details</span></h2>
+        </div>
+
+        <!-- Full Banner Image -->
+        <div class="pd-banner reveal">
+            <img src="./Banner.png" alt="GYN-GUARD Feminine Wash - Product Details" onerror="this.parentElement.style.display='none'">
+        </div>
+
+        <!-- Product Description -->
+        <div class="pd-desc reveal">
+            <p>GYN-GUARD Feminine Wash is a scientifically formulated intimate hygiene solution designed specifically for women's sensitive needs. It maintains the natural acidic pH balance of intimate areas (3.5 - 4.5) while providing a gentle whitening effect and all-day freshness. Enriched with <strong>Tea Tree Oil</strong> and natural botanical extracts, GYN-GUARD offers powerful antimicrobial protection without harsh chemicals. Our advanced formula has been carefully developed after extensive research to ensure it meets the highest standards of feminine hygiene care.</p>
+            <p>Our formula contains <strong>Lactic Acid</strong> to support healthy flora, <strong>Aloe Vera Extract</strong> for soothing comfort, and <strong>Chamomile Extract</strong> for anti-inflammatory care. Gynecologist tested and approved, GYN-GUARD is safe for daily use on even the most sensitive skin. It helps prevent itching, dryness, burning, and unpleasant odour while reducing unusual discharge symptoms. The gentle whitening effect works gradually with regular use, leaving intimate areas feeling clean, fresh, and confident. Unlike ordinary soaps that disrupt the natural pH balance, GYN-GUARD is specifically designed to maintain the delicate acidic environment your body needs.</p>
+            <p>Each 100ml bottle is designed for everyday use — simply take 5ml on your palm, apply gently to the intimate area, and rinse off with water. Trusted by thousands of women across Pakistan, GYN-GUARD is your daily companion for complete intimate hygiene and protection. Our product is dermatologically tested, hypoallergenic, and free from parabens, sulfates, and artificial fragrances. Whether you are looking for daily freshness, relief from discomfort, or a gentle whitening solution, GYN-GUARD is the answer. Made with love by BioNature (Pvt) Ltd, Islamabad — because every woman deserves to feel confident and cared for every single day.</p>
+        </div>
+
+        <!-- Benefits Grid -->
+        <div class="pd-section reveal">
+            <div class="pd-section-header">
+                <div class="pd-section-icon blue-icon"><i class="fas fa-star"></i></div>
+                <div>
+                    <h4>Key Benefits</h4>
+                    <p>Why thousands of women trust GYN-GUARD</p>
+                </div>
+            </div>
+            <div class="pd-benefits-grid">
+                <div class="pd-benefit-card">
+                    <div class="pd-benefit-icon"><i class="fas fa-balance-scale"></i></div>
+                    <h5>pH Balance</h5>
+                    <p>Maintains natural acidic pH <strong>(3.5 - 4.5)</strong> for optimal intimate health</p>
+                </div>
+                <div class="pd-benefit-card">
+                    <div class="pd-benefit-icon"><i class="fas fa-leaf"></i></div>
+                    <h5>Antimicrobial</h5>
+                    <p>Enriched with <strong>Tea Tree Oil</strong> for natural antimicrobial protection</p>
+                </div>
+                <div class="pd-benefit-card">
+                    <div class="pd-benefit-icon"><i class="fas fa-tint"></i></div>
+                    <h5>Controls Discharge</h5>
+                    <p>Reduces unusual vaginal discharge and discomfort effectively</p>
+                </div>
+                <div class="pd-benefit-card">
+                    <div class="pd-benefit-icon"><i class="fas fa-heart"></i></div>
+                    <h5>Soothes Irritation</h5>
+                    <p>Prevents itching, dryness, burning &amp; unpleasant odour</p>
+                </div>
+                <div class="pd-benefit-card">
+                    <div class="pd-benefit-icon"><i class="fas fa-spa"></i></div>
+                    <h5>Whitening Effect</h5>
+                    <p>Gentle whitening for intimate areas with regular use</p>
+                </div>
+                <div class="pd-benefit-card">
+                    <div class="pd-benefit-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h5>Sensitive Safe</h5>
+                    <p>Specially designed for daily use on sensitive skin</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ingredients & How to Use Side by Side -->
+        <div class="pd-split reveal">
+            <div class="pd-split-block">
+                <div class="pd-section-header">
+                    <div class="pd-section-icon"><i class="fas fa-leaf"></i></div>
+                    <div>
+                        <h4>Key Ingredients</h4>
+                        <p>Natural botanical extracts</p>
+                    </div>
+                </div>
+                <div class="pd-ingredients">
+                    <div class="pd-ingredient">
+                        <div class="pd-ing-dot green"></div>
+                        <div><strong>Tea Tree Oil</strong><span>Antimicrobial &amp; antifungal</span></div>
+                    </div>
+                    <div class="pd-ingredient">
+                        <div class="pd-ing-dot blue"></div>
+                        <div><strong>Aloe Vera Extract</strong><span>Soothing &amp; moisturizing</span></div>
+                    </div>
+                    <div class="pd-ingredient">
+                        <div class="pd-ing-dot pink"></div>
+                        <div><strong>Lactic Acid</strong><span>pH balance maintenance</span></div>
+                    </div>
+                    <div class="pd-ingredient">
+                        <div class="pd-ing-dot yellow"></div>
+                        <div><strong>Chamomile Extract</strong><span>Anti-inflammatory care</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="pd-split-block">
+                <div class="pd-section-header">
+                    <div class="pd-section-icon blue-icon"><i class="fas fa-clipboard-list"></i></div>
+                    <div>
+                        <h4>How to Use</h4>
+                        <p>Simple 3-step routine</p>
+                    </div>
+                </div>
+                <div class="pd-howto">
+                    <div class="pd-howto-step">
+                        <div class="pd-howto-num">1</div>
+                        <div><strong>Take 5ml</strong><span>on your palm</span></div>
+                    </div>
+                    <div class="pd-howto-arrow"><i class="fas fa-arrow-down"></i></div>
+                    <div class="pd-howto-step">
+                        <div class="pd-howto-num">2</div>
+                        <div><strong>Apply gently</strong><span>to intimate area</span></div>
+                    </div>
+                    <div class="pd-howto-arrow"><i class="fas fa-arrow-down"></i></div>
+                    <div class="pd-howto-step">
+                        <div class="pd-howto-num">3</div>
+                        <div><strong>Rinse off</strong><span>with water</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- pH BALANCE -->
+<section class="ph-section" id="benefits">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-badge green-badge">The Science</span>
+            <h2>Understanding <span>pH Balance</span></h2>
+            <p>How GYN-GUARD protects your healthy intimate acidic flora compared to harsh alkaline soaps.</p>
+        </div>
+        <div class="ph-visualizer reveal d2">
+            <div>
+                <div class="ph-scale-labels">
+                    <span>Acidic (0)</span>
+                    <span>Neutral (7)</span>
+                    <span>Alkaline (14)</span>
+                </div>
+                <div class="ph-scale-bar" id="phScaleBar">
+                    <div class="ph-optimal-zone" id="phOptimalZone"></div>
+                    <div class="ph-marker" id="phMarker">
+                        <div class="ph-marker-label" id="phMarkerLabel">pH 4.0</div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <label class="ph-label" for="phSlider"><i class="fas fa-sliders-h"></i> Drag to Explore pH Levels</label>
+                <input type="range" min="0" max="14" step="0.1" value="4.0" class="ph-slider" id="phSlider">
+            </div>
+            <div class="ph-result" id="phResult"></div>
+            <div class="ph-info-cards">
+                <div class="ph-info-card danger">
+                    <div class="card-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                    <h4>Alkaline Soaps (pH 9-10)</h4>
+                    <p>Regular soaps disrupt the natural acidic balance, leading to irritation, dryness, and increased infection risk.</p>
+                </div>
+                <div class="ph-info-card optimal">
+                    <div class="card-icon"><i class="fas fa-check-circle"></i></div>
+                    <h4>GYN-GUARD (pH 3.5-4.5)</h4>
+                    <p>Maintains the optimal acidic environment for healthy vaginal flora, preventing odour and discomfort.</p>
+                </div>
+                <div class="ph-info-card caution">
+                    <div class="card-icon"><i class="fas fa-ban"></i></div>
+                    <h4>Generic Body Wash (pH 6-7)</h4>
+                    <p>Too neutral for intimate areas, failing to provide the protective acidic barrier your body needs.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section id="why-us">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-badge green-badge">Our Promise</span>
+            <h2>Why <span>Choose</span> GYN-GUARD</h2>
+            <p>Your intimate health deserves the best. Here's why thousands trust us.</p>
+        </div>
+        <div class="why-grid">
+            <div class="why-card reveal d1">
+                <div class="icon"><i class="fas fa-user-md"></i></div>
+                <h3>Gynecologist Tested</h3>
+                <p>Clinically recommended and approved by leading gynecologists for safe and effective intimate care.</p>
+            </div>
+            <div class="why-card reveal d2">
+                <div class="icon"><i class="fas fa-user-graduate"></i></div>
+                <h3>Hypoallergenic Formula</h3>
+                <p>Specially formulated to minimize allergic reactions, suitable for even the most sensitive skin.</p>
+            </div>
+            <div class="why-card reveal d3">
+                <div class="icon"><i class="fas fa-leaf"></i></div>
+                <h3>Natural Extracts</h3>
+                <p>Enriched with Tea Tree Oil and soothing botanical extracts for gentle, effective care.</p>
+            </div>
+            <div class="why-card reveal d4">
+                <div class="icon"><i class="fas fa-balance-scale"></i></div>
+                <h3>pH Balanced</h3>
+                <p>Scientifically formulated at pH 3.5-4.5 to match your body's natural intimate chemistry.</p>
+            </div>
+        </div>
+
+        <!-- COMPARISON TABLE -->
+        <div class="section-header reveal" style="margin-top:40px;">
+            <h2>GYN-GUARD vs <span>Others</span></h2>
+            <p>See how GYN-GUARD outperforms ordinary soaps and generic body washes.</p>
+        </div>
+        <div class="comparison-table-wrapper reveal d2">
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>GYN-GUARD</th>
+                        <th>Ordinary Soaps</th>
+                        <th>Generic Body Wash</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>pH Balanced (3.5-4.5)</td><td><span class="check"><i class="fas fa-check-circle" style="color:var(--green)"></i></span></td><td><span class="cross"><i class="fas fa-times-circle"></i></span></td><td><span class="cross"><i class="fas fa-times-circle"></i></span></td></tr>
+                    <tr><td>Contains Tea Tree Oil</td><td><span class="check"><i class="fas fa-check-circle" style="color:var(--green)"></i></span></td><td><span class="cross"><i class="fas fa-times-circle"></i></span></td><td><span class="partial"><i class="fas fa-exclamation-circle"></i></span></td></tr>
+                    <tr><td>Prevents Irritation &amp; Odour</td><td><span class="check"><i class="fas fa-check-circle" style="color:var(--green)"></i></span></td><td><span class="cross"><i class="fas fa-times-circle"></i></span></td><td><span class="partial"><i class="fas fa-exclamation-circle"></i></span></td></tr>
+                    <tr><td>Safe for Sensitive Skin</td><td><span class="check"><i class="fas fa-check-circle" style="color:var(--green)"></i></span></td><td><span class="cross"><i class="fas fa-times-circle"></i></span></td><td><span class="partial"><i class="fas fa-exclamation-circle"></i></span></td></tr>
+                    <tr><td>Gynecologist Tested</td><td><span class="check"><i class="fas fa-check-circle" style="color:var(--green)"></i></span></td><td><span class="cross"><i class="fas fa-times-circle"></i></span></td><td><span class="cross"><i class="fas fa-times-circle"></i></span></td></tr>
+                    <tr><td>Reduces Vaginal Discharge</td><td><span class="check"><i class="fas fa-check-circle" style="color:var(--green)"></i></span></td><td><span class="cross"><i class="fas fa-times-circle"></i></span></td><td><span class="cross"><i class="fas fa-times-circle"></i></span></td></tr>
+                    <tr><td>Whitening Effect</td><td><span class="check"><i class="fas fa-check-circle" style="color:var(--green)"></i></span></td><td><span class="cross"><i class="fas fa-times-circle"></i></span></td><td><span class="cross"><i class="fas fa-times-circle"></i></span></td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" style="background: linear-gradient(180deg, var(--white) 0%, var(--bg-green) 100%);">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-badge green-badge"><i class="fas fa-comments"></i> Testimonials</span>
+            <h2>What Our <span>Customers</span> Say</h2>
+            <p>Real experiences from women who trust GYN-GUARD for their daily intimate care.</p>
+        </div>
+    </div>
+    <div class="test-marquee">
+        <div class="test-track" id="testTrack">
+            <div class="test-card">
+                <div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="test-text">"GYN-GUARD has been a game changer for me. I used to struggle with irritation and discomfort, but since I started using this, everything feels so much better. Highly recommended!"</p>
+                <div class="test-author"><div class="test-avatar">A</div><div><div class="test-name">Ayesha K.</div><div class="test-loc">Lahore</div></div></div>
+            </div>
+            <div class="test-card">
+                <div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="test-text">"Finally a product that actually does what it claims. The pH balance is perfect and I love that it's gynecologist approved. I've recommended it to all my friends."</p>
+                <div class="test-author"><div class="test-avatar">S</div><div><div class="test-name">Sana M.</div><div class="test-loc">Islamabad</div></div></div>
+            </div>
+            <div class="test-card">
+                <div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="test-text">"The Tea Tree Oil formula is so gentle yet effective. No harsh chemicals, no side effects. It's become an essential part of my daily routine. Thank you BioNature!"</p>
+                <div class="test-author"><div class="test-avatar">F</div><div><div class="test-name">Fatima R.</div><div class="test-loc">Karachi</div></div></div>
+            </div>
+            <div class="test-card">
+                <div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="test-text">"I was skeptical at first but after one week of use I noticed a real difference. The whitening effect is subtle and natural. Love this product so much!"</p>
+                <div class="test-author"><div class="test-avatar">M</div><div><div class="test-name">Mehwish T.</div><div class="test-loc">Rawalpindi</div></div></div>
+            </div>
+            <div class="test-card">
+                <div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="test-text">"Best feminine wash I have ever used. It smells amazing and keeps me feeling fresh all day. The pH balanced formula really works. 10/10!"</p>
+                <div class="test-author"><div class="test-avatar">Z</div><div><div class="test-name">Zainab A.</div><div class="test-loc">Faisalabad</div></div></div>
+            </div>
+            <div class="test-card">
+                <div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="test-text">"My gynecologist recommended GYN-GUARD and I'm so glad she did. It's gentle, effective, and completely safe. I feel confident and comfortable every day."</p>
+                <div class="test-author"><div class="test-avatar">N</div><div><div class="test-name">Nadia S.</div><div class="test-loc">Multan</div></div></div>
+            </div>
+            <div class="test-card">
+                <div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="test-text">"I've tried many brands but GYN-GUARD is the only one that didn't cause any irritation. It's perfect for sensitive skin. Will keep buying this forever!"</p>
+                <div class="test-author"><div class="test-avatar">R</div><div><div class="test-name">Rabia F.</div><div class="test-loc">Peshawar</div></div></div>
+            </div>
+            <div class="test-card">
+                <div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="test-text">"Amazing product! The natural ingredients made me feel safe using it. It controls discharge and odor perfectly. BioNature has done an incredible job!"</p>
+                <div class="test-author"><div class="test-avatar">H</div><div><div class="test-name">Hira B.</div><div class="test-loc">Quetta</div></div></div>
+            </div>
+            <div class="test-card">
+                <div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="test-text">"Pregnancy safe and so gentle. I used it throughout my pregnancy and it kept me feeling fresh and clean. Absolutely love this product!"</p>
+                <div class="test-author"><div class="test-avatar">U</div><div><div class="test-name">Urooj K.</div><div class="test-loc">Sialkot</div></div></div>
+            </div>
+            <div class="test-card">
+                <div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="test-text">"I ordered for my whole family and everyone loves it. The quality is top notch and the price is very reasonable for such a premium product."</p>
+                <div class="test-author"><div class="test-avatar">D</div><div><div class="test-name">Dua M.</div><div class="test-loc">Gujranwala</div></div></div>
+            </div>
+            <div class="test-card">
+                <div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="test-text">"The lactic acid in this wash really helps maintain the right pH. I noticed fewer infections since I started using it. Such a relief!"</p>
+                <div class="test-author"><div class="test-avatar">K</div><div><div class="test-name">Kainat J.</div><div class="test-loc">Hyderabad</div></div></div>
+            </div>
+            <div class="test-card">
+                <div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="test-text">"I recommended GYN-GUARD to my sister and she loves it too. We both agree it's the best feminine hygiene product available in Pakistan right now."</p>
+                <div class="test-author"><div class="test-avatar">Y</div><div><div class="test-name">Yumna A.</div><div class="test-loc">Abbottabad</div></div></div>
+            </div>
+            <div class="test-card">
+                <div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="test-text">"No more itching or dryness! This wash is a blessing. The whitening effect is a bonus. GYN-GUARD has become my go-to daily essential."</p>
+                <div class="test-author"><div class="test-avatar">I</div><div><div class="test-name">Iqra N.</div><div class="test-loc">Mardan</div></div></div>
+            </div>
+            <div class="test-card">
+                <div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="test-text">"As a dermatologist I recommend pH balanced products. GYN-GUARD passes every test. It's safe, effective, and well formulated. Great job BioNature!"</p>
+                <div class="test-author"><div class="test-avatar">T</div><div><div class="test-name">Dr. Tahira</div><div class="test-loc">Lahore</div></div></div>
+            </div>
+            <div class="test-card">
+                <div class="test-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="test-text">"Five stars all the way! GYN-GUARD is clean, fresh, and trustworthy. I've been using it for 3 months now and I couldn't be happier with the results."</p>
+                <div class="test-author"><div class="test-avatar">P</div><div><div class="test-name">Parveen S.</div><div class="test-loc">Gujrat</div></div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="background: linear-gradient(180deg, var(--bg-pink) 0%, var(--white) 100%);">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-badge green-badge">FAQ</span>
+            <h2>Frequently Asked <span>Questions</span></h2>
+            <p>Find answers to the most common questions about GYN-GUARD.</p>
+        </div>
+        <div class="faq-list">
+            <div class="faq-item reveal d1">
+                <button class="faq-q" onclick="toggleFaq(this)">
+                    <span>Is GYN-GUARD safe for daily use?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-a">
+                    <p>Yes, GYN-GUARD is specifically formulated for daily use. Its gentle, pH-balanced formula is dermatologically tested and gynecologist approved, making it safe for everyday intimate hygiene.</p>
+                </div>
+            </div>
+            <div class="faq-item reveal d2">
+                <button class="faq-q" onclick="toggleFaq(this)">
+                    <span>What makes GYN-GUARD different from regular soap?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-a">
+                    <p>Regular soaps have a pH of 9-10 which disrupts the natural acidic balance of intimate areas. GYN-GUARD is formulated at pH 3.5-4.5, matching your body's natural chemistry. It also contains Tea Tree Oil for antimicrobial protection.</p>
+                </div>
+            </div>
+            <div class="faq-item reveal d3">
+                <button class="faq-q" onclick="toggleFaq(this)">
+                    <span>Can I use GYN-GUARD during my menstrual cycle?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-a">
+                    <p>Absolutely. GYN-GUARD is gentle enough to use during your period. It helps maintain freshness and hygiene when you need it most, without causing any irritation or dryness.</p>
+                </div>
+            </div>
+            <div class="faq-item reveal d4">
+                <button class="faq-q" onclick="toggleFaq(this)">
+                    <span>Does GYN-GUARD have any side effects?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-a">
+                    <p>GYN-GUARD is made with natural extracts and is free from harsh chemicals, parabens, and sulfates. It is hypoallergenic and has no known side effects. However, if you experience any allergic reaction, discontinue use and consult your doctor.</p>
+                </div>
+            </div>
+            <div class="faq-item reveal">
+                <button class="faq-q" onclick="toggleFaq(this)">
+                    <span>How do I place an order?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-a">
+                    <p>You can order directly through our website by adding products to your cart and clicking "Order on WhatsApp." Alternatively, you can message us directly on WhatsApp at +92 336 5040776.</p>
+                </div>
+            </div>
+            <div class="faq-item reveal">
+                <button class="faq-q" onclick="toggleFaq(this)">
+                    <span>Do you offer nationwide delivery?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-a">
+                    <p>Yes, we deliver across Pakistan. Orders are processed within 24-48 hours and delivered within 3-5 business days depending on your location.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- GET IN TOUCH -->
+<section id="get-in-touch" style="background: linear-gradient(180deg, var(--bg-green) 0%, var(--white) 100%);">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-badge green-badge"><i class="fas fa-headset"></i> Contact Us</span>
+            <h2>Get In <span>Touch</span></h2>
+            <p>Have a product or distribution inquiry? Contact BioNature (Pvt) Ltd directly on WhatsApp.</p>
+        </div>
+
+        <div class="cit-layout reveal">
+            <!-- LEFT: Form -->
+            <div class="cit-form-card">
+                <h4>Send us a Message</h4>
+                <div class="cf-success" data-fs-success><i class="fas fa-check-circle"></i> Message sent successfully! We'll get back to you soon.</div>
+                <div class="cf-error" data-fs-error></div>
+                <form class="cit-form" id="contactForm" action="https://formspree.io/f/xgawgaek" method="POST">
+                    <div class="cf-group">
+                        <label for="cfName">Name</label>
+                        <input type="text" id="cfName" name="name" placeholder="Your full name" required data-fs-field>
+                        <span class="cf-field-error" data-fs-error="name"></span>
+                    </div>
+                    <div class="cf-group">
+                        <label for="cfPhone">Phone</label>
+                        <input type="tel" id="cfPhone" name="phone" placeholder="Your phone number" data-fs-field>
+                    </div>
+                    <div class="cf-group">
+                        <label for="cfSubject">Inquiry Type</label>
+                        <select id="cfSubject" name="subject" data-fs-field>
+                            <option value="">Select inquiry type</option>
+                            <option value="order">Place an Order</option>
+                            <option value="query">General Query</option>
+                            <option value="wholesale">Wholesale Inquiry</option>
+                            <option value="feedback">Feedback</option>
+                        </select>
+                    </div>
+                    <div class="cf-group">
+                        <label for="cfMessage">Message</label>
+                        <textarea id="cfMessage" name="message" rows="4" placeholder="How can we help you?" required data-fs-field></textarea>
+                        <span class="cf-field-error" data-fs-error="message"></span>
+                    </div>
+                    <button type="submit" class="cit-btn cit-btn-green" data-fs-submit-btn><i class="fas fa-paper-plane"></i> Send Message</button>
+                </form>
+            </div>
+
+            <!-- RIGHT: Info Stack -->
+            <div class="cit-right-stack">
+                <!-- Contact Info -->
+                <div class="cit-info-card">
+                    <h4>Contact Information</h4>
+                    <div class="cit-info-row">
+                        <div class="cit-info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div><span class="cit-info-label">Address</span><p>Flat No. 203, 2nd Floor, Galaxy Heights, Canal Road, Block H, Soan Gardens, Islamabad</p></div>
+                    </div>
+                    <div class="cit-info-row">
+                        <div class="cit-info-icon"><i class="fas fa-phone-alt"></i></div>
+                        <div><span class="cit-info-label">Phone</span><p>+92 336 5040776</p></div>
+                    </div>
+                    <div class="cit-info-row">
+                        <div class="cit-info-icon"><i class="fas fa-envelope"></i></div>
+                        <div><span class="cit-info-label">Email</span><p>bionature201@gmail.com</p></div>
+                    </div>
+                    <div class="cit-info-row">
+                        <div class="cit-info-icon"><i class="fas fa-clock"></i></div>
+                        <div><span class="cit-info-label">Business Hours</span><p>Mon - Sat: 9:00 AM - 6:00 PM</p></div>
+                    </div>
+                </div>
+
+                <!-- WhatsApp Quick Contact -->
+                <div class="cit-wa-card">
+                    <div class="cit-wa-icon"><i class="fab fa-whatsapp"></i></div>
+                    <h4>Quick Contact via WhatsApp</h4>
+                    <p>Have a product or distribution inquiry? Contact BioNature directly on WhatsApp.</p>
+                    <a href="https://wa.me/923365040776" class="cit-btn cit-btn-wa-outline" target="_blank"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
+                </div>
+
+                <!-- Social Media -->
+                <div class="cit-social-card">
+                    <h4>Connect With BioNature</h4>
+                    <p>Follow us on social media for product updates, new arrivals, company news and more.</p>
+                    <div class="cit-social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61592999549849" class="cit-social-icon fb" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="cit-social-icon ig" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="cit-social-icon tt" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" class="cit-social-icon yt" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://wa.me/923365040776" class="cit-social-icon wa" aria-label="WhatsApp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <!-- Map -->
+                <div class="cit-map-card">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13299.459955258291!2d73.159966!3d33.556884!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dfedda884fd15d%3A0xbbe1cf39ddd991ab!2sGalaxy%20Plaza!5e0!3m2!1sen!2sus!4v1787668628660!5m2!1sen!2sus" width="100%" height="220" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="brand-name">BioNature (Pvt) Ltd</div>
+                <p>Delivering nature-backed, scientifically tested personal health and hygiene solutions from Soan Gardens, Islamabad.</p>
+                <div class="footer-info">
+                    <div class="fi-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <span> Soan Gardens, Islamabad</span>
+                </div>
+                <div class="footer-info">
+                    <div class="fi-icon"><i class="fas fa-envelope"></i></div>
+                    <span>bionature201@gmail.com</span>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/profile.php?id=61592999549849" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/923365040776" class="social-link" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#benefits">Benefits &amp; Usage</a></li>
+                    <li><a href="#why-us">Why Choose Us</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#get-in-touch">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Get in Touch</h4>
+                <p style="color:rgba(255,255,255,0.5);font-size:0.88rem;margin-bottom:20px;line-height:1.7;">Have questions? Reach out anytime.</p>
+                <a href="mailto:bionature201@gmail.com" class="btn btn-green" style="width:100%;justify-content:center;"><i class="fas fa-envelope"></i> Email Us</a>
+                <a href="https://wa.me/923365040776" class="btn btn-whatsapp" style="width:100%;justify-content:center;margin-top:12px;" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 BioNature (Pvt) Ltd. All Rights Reserved.
+        </div>
+    </div>
+</footer>
+
+<!-- CART OVERLAY -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+
+<!-- CART DRAWER -->
+<div class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer-header">
+        <h3><i class="fas fa-shopping-bag"></i> Your Cart <span id="cartCount" style="font-size:0.8rem;font-weight:500;color:var(--grey-400);"></span></h3>
+        <button class="cart-close" onclick="closeCart()">&times;</button>
+    </div>
+    <div class="cart-drawer-body" id="cartBody">
+        <div class="cart-empty">
+            <div class="empty-icon"><i class="fas fa-shopping-bag"></i></div>
+            <p>Your cart is empty</p>
+        </div>
+    </div>
+    <div class="cart-drawer-footer" id="cartFooter" style="display:none;">
+        <div class="cart-total-row">
+            <span class="label">Total</span>
+            <span class="total" id="cartTotal">PKR 0</span>
+        </div>
+        <button class="btn-order-wa" id="btnOrderWA" onclick="orderOnWhatsApp()">
+            <i class="fab fa-whatsapp"></i> Order Complete Cart on WhatsApp
+        </button>
+        <button class="btn-clear-cart" onclick="clearCart()">Clear Cart</button>
+    </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- WHATSAPP FAB -->
+<a href="https://wa.me/923365040776" class="whatsapp-fab" target="_blank" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
+<script src="script.js"></script>
+<script>
+  window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+  formspree('initForm', { formElement: '#contactForm', formId: 'xgawgaek' });
+</script>
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+</body>
+</html>
