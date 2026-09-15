@@ -1,0 +1,9 @@
+# robots.txt - BioNature (Pvt) Ltd
+User-agent: *
+Allow: /
+
+Sitemap: https://bionaturepvtltd.com/sitemap.xml
+
+# Disallow temporary files
+Disallow: /temp/
+Disallow: /*.json$
