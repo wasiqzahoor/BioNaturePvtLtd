@@ -1,0 +1,20 @@
+/* humans.txt — BioNature (Pvt) Ltd */
+/* Website: https://bionaturepvtltd.com */
+
+/* TEAM */
+Company: BioNature (Pvt) Ltd
+Location: Office No. 203, 2nd Floor, Galaxy Heights, Canal Road, Block H, Soan Gardens, Islamabad, Pakistan
+Contact: bionature201@gmail.com | +92 336 5040776
+
+/* WEBSITE CREDITS — highlighted */
+Design & Development: NewAiTechSofts (https://newaitechsofts.com)
+Developer: Chaudhary Wasiq Zahoor
+Role: Complete website design, development & SEO
+
+/* PRODUCTS */
+1. GYN-GUARD Feminine Wash (100ml, pH 3.5-4.5)
+2. Misaka Herbal Cough Syrup (120ml — Ivy 35mg + Thyme 20mg + Licorice 20mg)
+3. Laxity Digestive Comfort Tablets (30 Tabs — Senna 40mg + Prune 100mg)
+
+/* THANKS */
+Thanks for visiting BioNature!

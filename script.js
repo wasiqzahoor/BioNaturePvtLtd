@@ -17,11 +17,53 @@ const nav = document.getElementById('nav');
 function toggleMenu() { hamburger.classList.toggle('active'); nav.classList.toggle('active'); document.body.style.overflow = nav.classList.contains('active') ? 'hidden' : ''; }
 function closeMenu() { hamburger.classList.remove('active'); nav.classList.remove('active'); document.body.style.overflow = ''; }
 
-// HERO VIDEO AUTOPLAY
+// HERO VIDEO — eager autoplay for instant show (preloaded in <head>)
 (function() {
     var video = document.getElementById('heroBgVideo');
     if (!video) return;
-    video.play().catch(function(){});
+    var tryPlay = function() { var p = video.play(); if (p && p.catch) p.catch(function(){}); };
+    tryPlay();
+    document.addEventListener('touchend', tryPlay, { once: true });
+})();
+
+// DELAYED THIRD-PARTY (GA / GTM / Cookie / Formspree) — after window idle
+(function() {
+    var loaded = false;
+    function loadThirdParty() {
+        if (loaded) return; loaded = true;
+        function add(src, attrs) {
+            var s = document.createElement('script');
+            s.src = src; s.async = true;
+            if (attrs) for (var k in attrs) s.setAttribute(k, attrs[k]);
+            document.head.appendChild(s);
+        }
+        // Google Analytics
+        add('https://www.googletagmanager.com/gtag/js?id=G-GZP8Z1P0WH');
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = window.gtag || function(){ window.dataLayer.push(arguments); };
+        window.gtag('js', new Date());
+        window.gtag('config', 'G-GZP8Z1P0WH');
+        // Google Tag Manager
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5FSL249T');
+        // Cookie consent
+        add('//cdn.cookie-script.com/s/474b9e3e6601ba2288ca5e6285508b23.js', { charset: 'UTF-8' });
+        // Formspree AJAX + init (contact form)
+        add('https://unpkg.com/@formspree/ajax@1', { defer: '' });
+        var tries = 0;
+        var t = setInterval(function() {
+            tries++;
+            if (window.formspree && document.querySelector('#contactForm')) {
+                clearInterval(t);
+                try { window.formspree('initForm', { formElement: '#contactForm', formId: 'xgawgaek' }); } catch(e){}
+            } else if (tries > 40) clearInterval(t);
+        }, 500);
+    }
+    function schedule() {
+        if ('requestIdleCallback' in window) requestIdleCallback(loadThirdParty, { timeout: 5000 });
+        else setTimeout(loadThirdParty, 3000);
+    }
+    if (document.readyState === 'complete') schedule();
+    else window.addEventListener('load', schedule);
 })();
 
 // SCROLL REVEAL
@@ -68,46 +110,9 @@ const statsObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 document.querySelectorAll('.about-stats-row').forEach(el => statsObserver.observe(el));
 
-// pH VISUALIZER
-const phSlider = document.getElementById('phSlider');
-const phMarker = document.getElementById('phMarker');
-const phMarkerLabel = document.getElementById('phMarkerLabel');
-const phResult = document.getElementById('phResult');
-const phOptimalZone = document.getElementById('phOptimalZone');
-
-function updatePH() {
-    const val = parseFloat(phSlider.value);
-    const pct = (val / 14) * 100;
-    phMarker.style.left = 'calc(' + pct + '% - 2px)';
-    phMarkerLabel.textContent = 'pH ' + val.toFixed(1);
-    const zoneStart = (3.5 / 14) * 100;
-    const zoneEnd = (4.5 / 14) * 100;
-    phOptimalZone.style.left = zoneStart + '%';
-    phOptimalZone.style.width = (zoneEnd - zoneStart) + '%';
-    var result = '';
-    if (val >= 3.5 && val <= 4.5) {
-        result = '<i class="fas fa-check-circle"></i> <strong>Optimal Range!</strong> Healthy acidic pH for intimate areas. GYN-GUARD is formulated at this level.';
-        phResult.style.background = 'linear-gradient(135deg, #F0FFF4, #DCFCE7)';
-        phResult.style.color = '#166534';
-    } else if (val < 3.5) {
-        result = '<i class="fas fa-exclamation-triangle"></i> <strong>Too Acidic.</strong> May cause irritation. Our wash stays within the safe zone.';
-        phResult.style.background = 'linear-gradient(135deg, #FFFBEB, #FEF3C7)';
-        phResult.style.color = '#92400E';
-    } else if (val <= 6) {
-        result = '<i class="fas fa-exclamation-triangle"></i> <strong>Slightly Acidic to Neutral.</strong> Not ideal for intimate care. Regular body washes fall here.';
-        phResult.style.background = 'linear-gradient(135deg, #FFF5F5, #FEE2E2)';
-        phResult.style.color = '#991B1B';
-    } else {
-        result = '<i class="fas fa-times-circle"></i> <strong>Alkaline &mdash; Harmful!</strong> Ordinary soaps (pH 9-10) disrupt natural flora and increase infection risk.';
-        phResult.style.background = 'linear-gradient(135deg, #FEE2E2, #FECACA)';
-        phResult.style.color = '#DC2626';
-    }
-    phResult.innerHTML = result;
-}
-if (phSlider) {
-    phSlider.addEventListener('input', updatePH);
-    updatePH();
-}
+// pH VISUALIZER — removed in redesign (replaced by #approach section)
+// kept as no-op guard for older cached HTML
+(function(){ var s=document.getElementById('phSlider'); if(!s) return; })();
 
 // SMOOTH SCROLL
 document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
@@ -117,8 +122,83 @@ document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
     });
 });
 
-// ==================== CART SYSTEM ====================
-var cart = JSON.parse(localStorage.getItem('bionature_cart') || '[]');
+// ==================== PRODUCT MODALS (Detail Popups, lazy images) ====================
+function hydrateModalImages(modal) {
+    modal.querySelectorAll('img[data-src]').forEach(function(img) {
+        img.src = img.getAttribute('data-src');
+        img.removeAttribute('data-src');
+    });
+}
+function openProductModal(id) {
+    closeProductModal(true);
+    var overlay = document.getElementById('productModalOverlay');
+    var modal = document.getElementById('modal-' + id);
+    if (!modal) return;
+    hydrateModalImages(modal);
+    if (overlay) overlay.classList.add('open');
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    // reset right-side scroll to top, keep left gallery fixed
+    var info = modal.querySelector('.pm-info');
+    if (info) info.scrollTop = 0;
+    var content = modal.querySelector('.product-modal-content');
+    if (content) content.scrollTop = 0;
+    // animate gallery main image
+    var mainImg = modal.querySelector('.pm-main-img img');
+    if (mainImg) { mainImg.style.opacity = '0'; setTimeout(function(){ mainImg.style.opacity = '1'; }, 50); }
+}
+// thumbnail switching (delegated, works with lazy data-full)
+document.addEventListener('click', function(e) {
+    var thumb = e.target && e.target.closest ? e.target.closest('.pm-thumbs img') : null;
+    if (!thumb) return;
+    var gallery = thumb.closest('.pm-gallery');
+    if (!gallery) return;
+    var main = gallery.querySelector('.pm-main-img img');
+    var full = thumb.getAttribute('data-full') || thumb.getAttribute('data-src') || thumb.src;
+    if (main && full) {
+        if (main.getAttribute('data-src')) { main.src = main.getAttribute('data-src'); main.removeAttribute('data-src'); }
+        main.src = full;
+    }
+    gallery.querySelectorAll('.pm-thumbs img').forEach(function(t){ t.classList.remove('active'); });
+    thumb.classList.add('active');
+});
+// background-preload popup galleries after first paint (instant open, no flash)
+(function() {
+    var preloadModals = function() {
+        document.querySelectorAll('.product-modal img[data-src]').forEach(function(img) {
+            var src = img.getAttribute('data-src');
+            var pre = new Image();
+            pre.src = src;
+            pre.decode && pre.decode().catch(function(){});
+        });
+    };
+    if (document.readyState === 'complete') {
+        if ('requestIdleCallback' in window) requestIdleCallback(preloadModals, { timeout: 4000 });
+        else setTimeout(preloadModals, 2000);
+    } else {
+        window.addEventListener('load', function() {
+            if ('requestIdleCallback' in window) requestIdleCallback(preloadModals, { timeout: 4000 });
+            else setTimeout(preloadModals, 2000);
+        });
+    }
+})();
+function closeProductModal(silent) {
+    var overlay = document.getElementById('productModalOverlay');
+    if (overlay) overlay.classList.remove('open');
+    document.querySelectorAll('.product-modal.open').forEach(function(m){ m.classList.remove('open'); });
+    if (!silent) {
+        // only restore scroll if cart is not open
+        var cartDrawer = document.getElementById('cartDrawer');
+        if (!cartDrawer || !cartDrawer.classList.contains('open')) document.body.style.overflow = '';
+    }
+}
+document.addEventListener('keydown', function(e){ if (e.key === 'Escape') { closeProductModal(); closeCart(); } });
+
+// ==================== CART SYSTEM (Price-Hide Mode) ====================
+var cart = [];
+try { cart = JSON.parse(localStorage.getItem('bionature_cart') || '[]'); } catch(e){ cart = []; }
+// migrate old carts with price field
+cart = cart.map(function(it){ return { id: it.id, name: it.name, variant: it.variant || '', img: (it.img || './logo.webp').replace('.png','.webp').replace('.jpeg','.webp'), qty: it.qty || 1 }; });
 
 function saveCart() {
     localStorage.setItem('bionature_cart', JSON.stringify(cart));
@@ -130,20 +210,10 @@ function addToCart(product) {
     if (existing) {
         existing.qty += 1;
     } else {
-        cart.push({ id: product.id, name: product.name, variant: product.variant, price: product.price, img: product.img, qty: 1 });
+        cart.push({ id: product.id, name: product.name, variant: product.variant || '', img: product.img || './logo.webp', qty: 1 });
     }
     saveCart();
-    showToast(product.name + ' (' + product.variant + ') added to cart!');
-    var btns = document.querySelectorAll('.btn-add-cart, .fp-add-cart');
-    btns.forEach(function(btn) {
-        var onclick = btn.getAttribute('onclick') || '';
-        if (onclick.indexOf(product.id) !== -1) {
-            btn.classList.add('added');
-            var originalHTML = btn.innerHTML;
-            btn.innerHTML = '<i class="fas fa-check"></i> Added';
-            setTimeout(function() { btn.classList.remove('added'); btn.innerHTML = originalHTML; }, 1500);
-        }
-    });
+    showToast(product.name + ' (' + (product.variant || '') + ') added to cart!');
 }
 
 function removeFromCart(id) {
@@ -165,10 +235,6 @@ function clearCart() {
     showToast('Cart cleared');
 }
 
-function getCartTotal() {
-    return cart.reduce(function(sum, item) { return sum + (item.price * item.qty); }, 0);
-}
-
 function getCartCount() {
     return cart.reduce(function(sum, item) { return sum + item.qty; }, 0);
 }
@@ -179,12 +245,12 @@ function renderCart() {
     var badge = document.getElementById('cartBadge');
     var countEl = document.getElementById('cartCount');
     var totalEl = document.getElementById('cartTotal');
+    if (!body || !footer || !badge) return;
     var count = getCartCount();
-    var total = getCartTotal();
 
     badge.textContent = count > 0 ? count : '';
     badge.setAttribute('data-count', count);
-    countEl.textContent = count > 0 ? '(' + count + ' item' + (count > 1 ? 's' : '') + ')' : '';
+    if (countEl) countEl.textContent = count > 0 ? '(' + count + ' item' + (count > 1 ? 's' : '') + ')' : '';
 
     if (cart.length === 0) {
         body.innerHTML = '<div class="cart-empty"><div class="empty-icon"><i class="fas fa-shopping-bag"></i></div><p>Your cart is empty</p></div>';
@@ -193,7 +259,7 @@ function renderCart() {
     }
 
     footer.style.display = 'block';
-    totalEl.textContent = 'PKR ' + total.toLocaleString();
+    if (totalEl) totalEl.textContent = count + ' item' + (count > 1 ? 's' : '');
 
     var html = '';
     cart.forEach(function(item) {
@@ -204,7 +270,7 @@ function renderCart() {
         html += '  <div class="cart-item-info">';
         html += '    <div class="name">' + item.name + '</div>';
         html += '    <div class="variant">' + item.variant + '</div>';
-        html += '    <div class="item-price">PKR ' + (item.price * item.qty).toLocaleString() + '</div>';
+        html += '    <div class="item-price" style="color:var(--grey-400);font-weight:500;font-size:0.78rem;">Qty: ' + item.qty + ' — price on WhatsApp</div>';
         html += '  </div>';
         html += '  <div class="cart-item-qty">';
         html += '    <button class="qty-btn" onclick="changeQty(\'' + item.id + '\', -1)">&#8722;</button>';
@@ -226,7 +292,8 @@ function openCart() {
 function closeCart() {
     document.getElementById('cartOverlay').classList.remove('open');
     document.getElementById('cartDrawer').classList.remove('open');
-    document.body.style.overflow = '';
+    var anyModal = document.querySelector('.product-modal.open');
+    if (!anyModal) document.body.style.overflow = '';
 }
 
 function orderOnWhatsApp() {
@@ -234,22 +301,17 @@ function orderOnWhatsApp() {
         showToast('Your cart is empty!');
         return;
     }
-    var total = getCartTotal();
     var count = getCartCount();
     var lines = [];
-    lines.push('Hi! I want to place an order from BioNature (Pvt) Ltd');
+    lines.push('Hi BioNature! I want to place an order:');
     lines.push('');
     lines.push('*Order Details:*');
-    lines.push('---');
     cart.forEach(function(item, i) {
-        lines.push((i + 1) + '. ' + item.name + ' (' + item.variant + ')');
-        lines.push('   Qty: ' + item.qty + ' x PKR ' + item.price.toLocaleString() + ' = PKR ' + (item.price * item.qty).toLocaleString());
+        lines.push((i + 1) + '. ' + item.name + ' (' + item.variant + ') x ' + item.qty);
     });
-    lines.push('---');
-    lines.push('*Total Items: ' + count + '*');
-    lines.push('*Total Amount: PKR ' + total.toLocaleString() + '*');
     lines.push('');
-    lines.push('Please confirm my order. Thank you!');
+    lines.push('*Total Items: ' + count + '*');
+    lines.push('Please confirm price & delivery. Thank you!');
 
     var msg = encodeURIComponent(lines.join('\n'));
     window.open('https://wa.me/923365040776?text=' + msg, '_blank');

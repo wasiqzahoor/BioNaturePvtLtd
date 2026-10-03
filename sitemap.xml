@@ -1,50 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
     <url>
-        <loc>https://bionaturepvtltd.com</loc>
-        <lastmod>2026-09-15</lastmod>
+        <loc>https://bionaturepvtltd.com/</loc>
+        <lastmod>2026-10-02</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
+        <image:image>
+            <image:loc>https://bionaturepvtltd.com/GynGuard-1.webp</image:loc>
+            <image:title>GYN-GUARD Feminine Wash — BioNature</image:title>
+            <image:caption>Premium intimate hygiene wash, pH 3.5-4.5, 100ml</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://bionaturepvtltd.com/Misaka-1.webp</image:loc>
+            <image:title>Misaka Herbal Cough Syrup 120ml — BioNature</image:title>
+            <image:caption>Herbal relief from cough and congestion, Ivy + Thyme + Licorice</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://bionaturepvtltd.com/Laxity-1.webp</image:loc>
+            <image:title>Laxity Digestive Comfort Tablets 30s — BioNature</image:title>
+            <image:caption>Herbal constipation relief, Senna 40mg + Prune 100mg</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://bionaturepvtltd.com/logo.webp</image:loc>
+            <image:title>BioNature (Pvt) Ltd Logo</image:title>
+        </image:image>
     </url>
     <url>
         <loc>https://bionaturepvtltd.com/#about</loc>
-        <lastmod>2026-09-15</lastmod>
+        <lastmod>2026-10-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://bionaturepvtltd.com/#products</loc>
-        <lastmod>2026-09-15</lastmod>
+        <lastmod>2026-10-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://bionaturepvtltd.com/#benefits</loc>
-        <lastmod>2026-09-15</lastmod>
+        <loc>https://bionaturepvtltd.com/#features</loc>
+        <lastmod>2026-10-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://bionaturepvtltd.com/#why-us</loc>
-        <lastmod>2026-09-15</lastmod>
+        <lastmod>2026-10-02</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://bionaturepvtltd.com/#approach</loc>
+        <lastmod>2026-10-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://bionaturepvtltd.com/#testimonials</loc>
-        <lastmod>2026-09-15</lastmod>
+        <lastmod>2026-10-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://bionaturepvtltd.com/#faq</loc>
-        <lastmod>2026-09-15</lastmod>
+        <lastmod>2026-10-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://bionaturepvtltd.com/#get-in-touch</loc>
-        <lastmod>2026-09-15</lastmod>
+        <lastmod>2026-10-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>

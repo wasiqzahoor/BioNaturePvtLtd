@@ -1,4 +1,4 @@
-# robots.txt - BioNature (Pvt) Ltd
+# robots.txt - BioNature (Pvt) Ltd | Website by NewAiTechSofts (Chaudhary Wasiq Zahoor)
 User-agent: *
 Allow: /
 
