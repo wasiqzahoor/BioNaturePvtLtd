@@ -14,8 +14,8 @@ window.addEventListener('scroll', () => {
 // MOBILE MENU
 const hamburger = document.getElementById('hamburger');
 const nav = document.getElementById('nav');
-function toggleMenu() { hamburger.classList.toggle('active'); nav.classList.toggle('active'); document.body.style.overflow = nav.classList.contains('active') ? 'hidden' : ''; }
-function closeMenu() { hamburger.classList.remove('active'); nav.classList.remove('active'); document.body.style.overflow = ''; }
+function toggleMenu() { hamburger.classList.toggle('active'); nav.classList.toggle('active'); header.classList.toggle('menu-open', nav.classList.contains('active')); document.body.style.overflow = nav.classList.contains('active') ? 'hidden' : ''; }
+function closeMenu() { hamburger.classList.remove('active'); nav.classList.remove('active'); header.classList.remove('menu-open'); document.body.style.overflow = ''; }
 
 // HERO VIDEO — eager autoplay for instant show (preloaded in <head>)
 (function() {

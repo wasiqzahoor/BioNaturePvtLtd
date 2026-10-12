@@ -258,6 +258,7 @@
             <a href="#about" onclick="closeMenu()">About</a>
             <a href="#products" onclick="closeMenu()">Products</a>
             <a href="#features" onclick="closeMenu()">Benefits</a>
+            <a href="#careers" onclick="closeMenu()">Careers</a>
             <a href="#testimonials" onclick="closeMenu()">Reviews</a>
             <a href="#get-in-touch" onclick="closeMenu()">Contact</a>
             <a href="https://wa.me/923365040776" class="btn btn-whatsapp nav-wa-mobile" target="_blank"><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
@@ -917,6 +918,45 @@
     </div>
 </section>
 
+<!-- CAREERS -->
+<section id="careers">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-badge plum-badge"><i class="fas fa-briefcase"></i> Careers at BioNature</span>
+            <h2>Build Your Career <span>With Us</span></h2>
+            <p>Explore current opportunities across our teams and apply for the position that fits your skills and ambition — whether you are a fresh graduate or an experienced professional.</p>
+        </div>
+
+        <div class="careers-toolbar reveal">
+            <div class="careers-search">
+                <i class="fas fa-magnifying-glass"></i>
+                <input type="search" id="jobSearch" placeholder="Search by job title, skill or keyword..." aria-label="Search jobs">
+            </div>
+            <div class="careers-filters">
+                <select id="filterType" aria-label="Filter by job type"><option value="">All Job Types</option></select>
+                <select id="filterLocation" aria-label="Filter by location"><option value="">All Locations</option></select>
+                <select id="filterDepartment" aria-label="Filter by department"><option value="">All Departments</option></select>
+                <select id="filterExperience" aria-label="Filter by experience"><option value="">All Experience Levels</option></select>
+                <button type="button" class="careers-reset" id="clearFilters"><i class="fas fa-rotate-left"></i> Reset Filters</button>
+            </div>
+            <div class="careers-count" id="jobsCount">Loading available positions...</div>
+        </div>
+
+        <div class="jobs-state" id="jobsState">
+            <div class="jobs-spinner"></div>
+            <p>Loading available positions...</p>
+        </div>
+
+        <div class="jobs-grid" id="jobsGrid" hidden></div>
+
+        <div class="jobs-state jobs-state-empty" id="jobsEmpty" hidden>
+            <div class="jobs-state-icon"><i class="fas fa-magnifying-glass"></i></div>
+            <p><strong>No jobs found</strong> — no open positions match your search right now.</p>
+            <button type="button" class="btn btn-secondary" id="emptyResetBtn"><i class="fas fa-rotate-left"></i> Clear Search &amp; Filters</button>
+        </div>
+    </div>
+</section>
+
 <!-- GET IN TOUCH -->
 <section id="get-in-touch" style="background: linear-gradient(180deg, var(--bg-green) 0%, var(--white) 100%);">
     <div class="container">
@@ -1016,6 +1056,8 @@
     </div>
 </section>
 
+
+
 <!-- FOOTER -->
 <footer id="contact">
     <div class="container">
@@ -1070,6 +1112,78 @@
     </div>
 </footer>
 
+<!-- CAREERS: JOB DETAILS MODAL -->
+<div class="job-modal-overlay" id="jobDetailsOverlay"></div>
+<div class="job-modal" id="jobDetailsModal" role="dialog" aria-modal="true" aria-label="Job details">
+    <div class="job-modal-content">
+        <button class="job-modal-close" onclick="closeJobDetails()" aria-label="Close">&times;</button>
+        <div id="jobDetailsBody"></div>
+    </div>
+</div>
+
+<!-- CAREERS: APPLICATION FORM MODAL -->
+<div class="job-modal-overlay" id="applyOverlay"></div>
+<div class="job-modal" id="applyModal" role="dialog" aria-modal="true" aria-label="Job application form">
+    <div class="job-modal-content">
+        <button class="job-modal-close" onclick="closeApplyForm()" aria-label="Close">&times;</button>
+        <div class="jm-apply-head">
+            <span class="jm-category"><i class="fas fa-file-signature"></i> Application Form</span>
+            <h2>Apply for <span id="applyJobTitle">this position</span></h2>
+            <p class="jm-apply-jobid">Applying for Job ID: <strong id="applyJobId">—</strong></p>
+        </div>
+        <form class="jm-form" id="applyForm" novalidate action="https://formspree.io/f/xgawgaek" method="POST" data-endpoint="https://formspree.io/f/xgawgaek">
+            <input type="hidden" id="applyJobIdField" name="jobId">
+            <input type="hidden" id="applyJobTitleField" name="jobTitle">
+            <input type="hidden" id="applySubjectField" name="_subject" value="">
+            <div class="jf-row">
+                <div class="jf-group">
+                    <label for="applyName">Full Name <span class="req">*</span></label>
+                    <input type="text" id="applyName" name="fullName" placeholder="e.g. Ahmed Raza" autocomplete="name">
+                    <span class="jf-error"></span>
+                </div>
+                <div class="jf-group">
+                    <label for="applyEmail">Email Address <span class="req">*</span></label>
+                    <input type="email" id="applyEmail" name="email" placeholder="you@example.com" autocomplete="email">
+                    <span class="jf-error"></span>
+                </div>
+                <div class="jf-group">
+                    <label for="applyPhone">Phone Number <span class="req">*</span></label>
+                    <input type="tel" id="applyPhone" name="phone" placeholder="+92 3XX XXXXXXX" autocomplete="tel">
+                    <span class="jf-error"></span>
+                </div>
+                <div class="jf-group">
+                    <label for="applyResume">Resume / CV Link <span class="req">*</span></label>
+                    <input type="url" id="applyResume" name="resume" placeholder="https://drive.google.com/... (share link)" autocomplete="url">
+                    <span class="jf-error"></span>
+                </div>
+                <div class="jf-group">
+                    <label for="applyLinkedin">LinkedIn Profile</label>
+                    <input type="url" id="applyLinkedin" name="linkedin" placeholder="https://linkedin.com/in/username">
+                    <span class="jf-error"></span>
+                </div>
+                <div class="jf-group">
+                    <label for="applyPortfolio">Portfolio / GitHub URL</label>
+                    <input type="url" id="applyPortfolio" name="portfolio" placeholder="https://github.com/username">
+                    <span class="jf-error"></span>
+                </div>
+            </div>
+            <div class="jf-group">
+                <label for="applyCover">Cover Letter</label>
+                <textarea id="applyCover" name="coverLetter" rows="4" placeholder="Tell us briefly why you are a great fit for this role..."></textarea>
+                <span class="jf-error"></span>
+            </div>
+            <button type="submit" class="btn btn-primary jf-submit" data-apply-submit><i class="fas fa-paper-plane"></i> Submit Application</button>
+            <p class="jf-note"><i class="fas fa-lock"></i> Your information is kept confidential and used only for recruitment.</p>
+        </form>
+        <div class="jm-apply-success" id="applySuccess" hidden>
+            <div class="success-icon"><i class="fas fa-circle-check"></i></div>
+            <h3>Application Received!</h3>
+            <p>Thank you — your application for <strong id="successJobTitle">this position</strong> has been submitted. Our HR team will review it and contact shortlisted candidates by email or phone.</p>
+            <button type="button" class="btn btn-green" onclick="closeApplyForm()"><i class="fas fa-check"></i> Done</button>
+        </div>
+    </div>
+</div>
+
 <!-- CART OVERLAY -->
 <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
 
@@ -1105,5 +1219,6 @@
 <a href="https://wa.me/923365040776" class="whatsapp-fab" target="_blank" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
 
 <script src="script.js" defer></script>
+<script src="careers.js" defer></script>
 </body>
 </html>
